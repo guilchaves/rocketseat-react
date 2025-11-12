@@ -1,4 +1,4 @@
-## Formação React | Rocketseat
+## Formação React | Rocketseat 🚀
 
 Repositório com projetos desenvolvidos durante a Formação React da Rocketseat.
 
