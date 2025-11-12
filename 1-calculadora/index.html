@@ -193,10 +193,21 @@
         );
       }
 
+      function OperationHistory() {
+        return (
+          <Card className="py-10 px-8">
+            <Text as="h1" variant="heading" className="mb-4">
+              Histórico de Operações
+            </Text>
+          </Card>
+        );
+      }
+
       function App() {
         return (
           <main className="py-28 px-4">
             <Calculator />
+            <OperationHistory />
           </main>
         );
       }
