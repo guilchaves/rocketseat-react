@@ -1,3 +1,5 @@
+<img src="https://storage.googleapis.com/star-lab/novo-site/og/og-react.jpg" width="65%" />
+
 ## Formação React | Rocketseat 🚀
 
 Repositório com projetos desenvolvidos durante a Formação React da Rocketseat.
