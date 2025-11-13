@@ -173,6 +173,11 @@
       }
 
       function Calculator() {
+
+        function handleInputClick(input) {
+          console.log(input);
+        }
+
         return (
           <Card
             className={`
@@ -191,6 +196,7 @@
                       key={button.input}
                       variant={button.variant}
                       className={button.className || "w-16 h-16"}
+                      onClick={() => handleInputClick(button.input)}
                     >
                       {button.input}
                     </Button>
