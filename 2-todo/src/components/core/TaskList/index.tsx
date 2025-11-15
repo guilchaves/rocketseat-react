@@ -22,10 +22,9 @@ function TaskList() {
         </Button>
       </section>
       <section className="space-y-2">
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
+        {tasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
       </section>
     </>
   );
