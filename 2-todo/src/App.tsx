@@ -12,6 +12,7 @@ import Container from "./components/Container";
 import Icon from "./components/Icon";
 import InputCheckbox from "./components/InputCheckbox";
 import InputText from "./components/InputText";
+import Skeleton from "./components/Skeleton";
 import Text from "./components/Text";
 
 function App() {
@@ -39,9 +40,10 @@ function App() {
           <Icon svg={XIcon} />
         </div>
 
-        <div>
+        <div className="flex gap-1">
           <Badge variant="primary">5</Badge>
           <Badge variant="secondary">2 de 5</Badge>
+          <Badge loading>5</Badge>
         </div>
 
         <div>
@@ -52,6 +54,7 @@ function App() {
           <ButtonIcon icon={TrashIcon} />
           <ButtonIcon icon={TrashIcon} variant="secondary" />
           <ButtonIcon icon={TrashIcon} variant="tertiary" />
+          <ButtonIcon icon={TrashIcon} loading />
         </div>
 
         <div>
@@ -60,10 +63,17 @@ function App() {
 
         <div>
           <InputCheckbox />
+          <InputCheckbox loading/>
         </div>
 
         <div>
           <Card size="md"> Olá mundo </Card>
+        </div>
+
+        <div className="space-y-2">
+          <Skeleton className="h-6"/>
+          <Skeleton className="h-6"/>
+          <Skeleton className="h-6 w-96" />
         </div>
       </div>
     </Container>
