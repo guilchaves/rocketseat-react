@@ -9,6 +9,7 @@ import Button from "./components/Button";
 import ButtonIcon from "./components/ButtonIcon";
 
 import Icon from "./components/Icon";
+import InputCheckbox from "./components/InputCheckbox";
 import InputText from "./components/InputText";
 import Text from "./components/Text";
 
@@ -52,6 +53,10 @@ function App() {
 
       <div>
         <InputText />
+      </div>
+
+      <div>
+        <InputCheckbox />
       </div>
     </div>
   );
