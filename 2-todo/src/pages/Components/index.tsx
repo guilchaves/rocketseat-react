@@ -4,16 +4,16 @@ import PlusIcon from "../../assets/icons/plus.svg?react";
 import SpinnerIcon from "../../assets/icons/spinner.svg?react";
 import TrashIcon from "../../assets/icons/trash.svg?react";
 import XIcon from "../../assets/icons/x.svg?react";
-import Badge from "../../components/Badge";
-import Button from "../../components/Button";
-import ButtonIcon from "../../components/ButtonIcon";
-import Card from "../../components/Card";
-import Container from "../../components/Container";
-import Icon from "../../components/Icon";
-import InputCheckbox from "../../components/InputCheckbox";
-import InputText from "../../components/InputText";
-import Skeleton from "../../components/Skeleton";
-import Text from "../../components/Text";
+import Badge from "../../components/ui/Badge";
+import Button from "../../components/ui/Button";
+import ButtonIcon from "../../components/ui/ButtonIcon";
+import Card from "../../components/ui/Card";
+import Container from "../../components/ui/Container";
+import Icon from "../../components/ui/Icon";
+import InputCheckbox from "../../components/ui/InputCheckbox";
+import InputText from "../../components/ui/InputText";
+import Skeleton from "../../components/ui/Skeleton";
+import Text from "../../components/ui/Text";
 
 function ComponentsPage() {
   return (
