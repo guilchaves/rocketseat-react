@@ -9,11 +9,12 @@ import Button from "./components/Button";
 import ButtonIcon from "./components/ButtonIcon";
 
 import Icon from "./components/Icon";
+import InputText from "./components/InputText";
 import Text from "./components/Text";
 
 function App() {
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-10">
       <div className="flex flex-col gap-2">
         <Text>Olá mundo</Text>
         <Text variant="body-sm-bold" className="text-pink-base">
@@ -47,6 +48,10 @@ function App() {
         <ButtonIcon icon={TrashIcon} />
         <ButtonIcon icon={TrashIcon} variant="secondary" />
         <ButtonIcon icon={TrashIcon} variant="tertiary" />
+      </div>
+
+      <div>
+        <InputText />
       </div>
     </div>
   );
