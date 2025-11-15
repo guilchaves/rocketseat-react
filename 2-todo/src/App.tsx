@@ -4,6 +4,7 @@ import PlusIcon from "./assets/icons/plus.svg?react";
 import SpinnerIcon from "./assets/icons/spinner.svg?react";
 import TrashIcon from "./assets/icons/trash.svg?react";
 import XIcon from "./assets/icons/x.svg?react";
+import Badge from "./components/Badge";
 
 import Icon from "./components/Icon";
 import Text from "./components/Text";
@@ -26,9 +27,14 @@ function App() {
         <Icon svg={TrashIcon} className="fill-green-base" />
         <Icon svg={CheckIcon} />
         <Icon svg={PlusIcon} />
-        <Icon svg={SpinnerIcon} />
+        <Icon svg={SpinnerIcon} animate />
         <Icon svg={PencilIcon} />
         <Icon svg={XIcon} />
+      </div>
+
+      <div>
+        <Badge variant="primary">5</Badge>
+        <Badge variant="secondary">2 de 5</Badge>
       </div>
     </div>
   );
