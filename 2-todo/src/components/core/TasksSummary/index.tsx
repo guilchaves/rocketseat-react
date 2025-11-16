@@ -3,7 +3,7 @@ import Badge from "../../ui/Badge";
 import Text from "../../ui/Text";
 
 function TasksSummary() {
-  const { tasksCount, completedTasksCount } = useTasks();
+  const { tasksCount, completedTasksCount, isLoadingTask } = useTasks();
 
   return (
     <>
@@ -11,13 +11,13 @@ function TasksSummary() {
         <Text variant="body-sm-bold" className="!text-gray-300">
           Tarefas criadas
         </Text>
-        <Badge variant="secondary">{tasksCount}</Badge>
+        <Badge variant="secondary" loading={isLoadingTask}>{tasksCount}</Badge>
       </div>
       <div className="flex items-center gap-2">
         <Text variant="body-sm-bold" className="!text-gray-300">
           Concluídas
         </Text>
-        <Badge variant="primary">
+        <Badge variant="primary" loading={isLoadingTask}>
           {completedTasksCount} de {tasksCount}
         </Badge>
       </div>
