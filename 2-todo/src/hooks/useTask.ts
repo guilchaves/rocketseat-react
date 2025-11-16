@@ -24,9 +24,17 @@ function useTask() {
     setTasks(updatedTask);
   }
 
+  function updateTaskStatus(id: string, completed: boolean) {
+    const updatedTask = tasks.map((task) =>
+      task.id === id ? { ...task, completed } : task,
+    );
+    setTasks(updatedTask);
+  }
+
   return {
     createNewTask,
     updateTask,
+    updateTaskStatus,
   };
 }
 
