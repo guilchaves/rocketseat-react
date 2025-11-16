@@ -6,8 +6,10 @@ function useTasks() {
 
   return {
     tasks,
-    tasksCount: tasks.length,
-    concludedTasksCount: tasks.filter((task: Task) => task.completed).length,
+    tasksCount: tasks.filter(
+      (task: Task) => !task.state || task.state === "created",
+    ).length,
+    completedTasksCount: tasks.filter((task: Task) => task.completed).length,
   };
 }
 
