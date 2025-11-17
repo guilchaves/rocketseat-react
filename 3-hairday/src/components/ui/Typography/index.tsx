@@ -7,8 +7,8 @@ const typographyVariants = cva("font-sans", {
       "title-lg": "text-[32px] leading-6 font-bold",
       "title-md": "text-[16px] leading-6 font-bold",
       "title-sm": "text-sm leading-5 font-bold",
-      "text-md": "text-[16px] leading-6 font-normal",
-      "text-sm": "text-sm leading-5 font-normal",
+      "text-md": "text-[16px] leading-6",
+      "text-sm": "text-sm leading-5",
     },
   },
   defaultVariants: {
