@@ -1,0 +1,40 @@
+import { createElement } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const typographyVariants = cva("font-sans", {
+  variants: {
+    variant: {
+      "title-lg": "text-[32px] leading-6 font-bold",
+      "title-md": "text-[16px] leading-6 font-bold",
+      "title-sm": "text-sm leading-5 font-bold",
+      "text-md": "text-[16px] leading-6 font-normal",
+      "text-sm": "text-sm leading-5 font-normal",
+    },
+  },
+  defaultVariants: {
+    variant: "text-md",
+  },
+});
+
+interface TypographyProps extends VariantProps<typeof typographyVariants> {
+  as?: keyof React.JSX.IntrinsicElements;
+  className?: string;
+  children: React.ReactNode;
+}
+
+export default function Typography({
+  as = "span",
+  variant,
+  className,
+  children,
+  ...props
+}: TypographyProps) {
+  return createElement(
+    as,
+    {
+      className: typographyVariants({ variant, className }),
+      ...props,
+    },
+    children,
+  );
+}
