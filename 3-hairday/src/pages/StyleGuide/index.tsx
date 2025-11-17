@@ -11,6 +11,7 @@ import Button from "../../components/ui/Button";
 import ButtonIcon from "../../components/ui/ButtonIcon";
 import Icon from "../../components/ui/Icon";
 import TextInput from "../../components/ui/TextInput";
+import TimeSelect from "../../components/ui/TimeSelect";
 import Typography from "../../components/ui/Typography";
 
 export default function StyleGuidePage() {
@@ -103,6 +104,20 @@ export default function StyleGuidePage() {
         <ButtonIcon icon={TrashIcon} disabled />
       </div>
 
+      <Typography
+        variant="title-lg"
+        as="h1"
+        className="mb-10 mt-10 text-gray-100"
+      >
+        Time Select
+      </Typography>
+
+      <div className="flex flex-col gap-4 mt-4">
+        <TimeSelect time="09:00" />
+        <TimeSelect time="09:00" />
+        <TimeSelect time="09:00" />
+        <TimeSelect time="09:00" disabled />
+      </div>
     </div>
   );
 }
