@@ -1,9 +1,9 @@
-import StyleGuidePage from "./pages/StyleGuide";
+import HomePage from "./pages/Home";
 
 function App() {
   return (
     <>
-      <StyleGuidePage />
+      <HomePage />
     </>
   );
 }
