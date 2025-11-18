@@ -83,7 +83,15 @@ export default function StyleGuidePage() {
       </Typography>
 
       <div className="flex flex-col gap-4 mt-4">
-        <TextInput placeholder="Nome do cliente" icon={UserSquareIcon} />
+        <TextInput
+          placeholder="Nome do cliente"
+          icon={CalendarBlankIcon}
+          type="date"
+        />
+        <TextInput
+          placeholder="Nome do cliente"
+          icon={UserSquareIcon}
+        />
         <TextInput
           placeholder="Input desativado"
           icon={UserSquareIcon}
@@ -96,7 +104,7 @@ export default function StyleGuidePage() {
         as="h1"
         className="mb-10 mt-10 text-gray-100"
       >
-       Button Icon 
+        Button Icon
       </Typography>
 
       <div className="flex flex-col gap-4 mt-4">

@@ -29,6 +29,7 @@ interface TextInputProps
   extends Omit<React.ComponentProps<"input">, "size" | "disabled">,
     VariantProps<typeof textInputVariants> {
   icon: React.ComponentProps<typeof Icon>["svg"];
+  type?: "text" | "date";
 }
 
 export default function TextInput({
@@ -36,21 +37,18 @@ export default function TextInput({
   disabled,
   className,
   icon,
+  type = "text",
   ...props
 }: TextInputProps) {
   return (
-    <div
-      className={cx(
-        textInputVariants({ size, disabled }),
-        className,
-      )}
-    >
+    <div className={cx(textInputVariants({ size, disabled }), className)}>
       <Icon svg={icon} className="fill-yellow" />
       <input
+        type={type}
+        lang="pt-BR"
         {...props}
-        className="outline-none bg-transparent flex-1 placeholder:text-gray-400"
+        className="outline-none bg-transparent flex-1 placeholder:text-gray-400 date-input"
       />
     </div>
   );
 }
-
