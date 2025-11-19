@@ -1,6 +1,6 @@
 import useLocalStorage from "use-local-storage";
 import { APPOINTMENTS_KEY, type Appointment } from "../models/appointment";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { delay } from "../helpers/utils";
 
 export default function useAppointments(selectedDate?: string) {
@@ -12,7 +12,7 @@ export default function useAppointments(selectedDate?: string) {
   const [isFetchingAppointments, setIsFetchingAppointments] =
     useState<boolean>(true);
 
-  async function fetchAppointments(date: string) {
+  const fetchAppointments = useCallback( async (date: string) => {
     if (!date) return;
 
     if (isFetchingAppointments) {
@@ -25,11 +25,12 @@ export default function useAppointments(selectedDate?: string) {
     );
     setAppointments(filteredAppointments);
     setIsFetchingAppointments(false);
-  }
 
-  useEffect(() => {
+  }, [selectedDate, appointmentsData, isFetchingAppointments])
+
+   useEffect(() => {
     if (selectedDate) {
-      void fetchAppointments(selectedDate);
+      fetchAppointments(selectedDate);
     }
   }, [appointmentsData, selectedDate]);
 

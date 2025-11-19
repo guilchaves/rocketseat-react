@@ -18,7 +18,7 @@ export default function DailyAppointments() {
   } = useAppointments(selectedDate);
 
   return (
-    <div className="bg-gray-700 flex flex-col justify-center align-center p-20">
+    <div className="bg-transparent flex flex-col justify-center align-center p-20">
       <div className="flex justify-between mb-8">
         <div>
           <Typography as="h1" variant="title-lg">
