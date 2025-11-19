@@ -3,7 +3,8 @@ import Typography from "../../ui/Typography";
 import TextInput from "../../ui/TextInput";
 import ScheduleList from "../../ui/ScheduleList";
 import useAppointments from "../../../hook/useAppointments";
-import { getTodayISO } from "../../../helpers/utils";
+
+const getTodayISO = () => new Date().toISOString().split("T")[0];
 
 export default function DailyAppointments() {
   const today = getTodayISO();
@@ -37,14 +38,12 @@ export default function DailyAppointments() {
         </div>
       </div>
 
-      <div>
-        <ScheduleList
-          morningAppointments={morningAppointments}
-          afternoonAppointments={afternoonAppointments}
-          eveningAppointments={eveningAppointments}
-          isLoading={isFetchingAppointments}
-        />
-      </div>
+      <ScheduleList
+        morningAppointments={morningAppointments}
+        afternoonAppointments={afternoonAppointments}
+        eveningAppointments={eveningAppointments}
+        isLoading={isFetchingAppointments}
+      />
     </div>
   );
 }

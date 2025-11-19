@@ -34,15 +34,13 @@ export default function Sidebar() {
   const resetForm = (): void => {
     setSelectedTime(null);
     setClientName("");
-    // opcional: manter a data selecionada ou voltar para hoje
-    // setSelectedDate(today);
   };
 
   const handleSchedule = (): void => {
     if (!isFormValid || !selectedTime) return;
 
     const appointment: Appointment = {
-      id: crypto.randomUUID?.() ?? Math.random().toString(36).substring(2, 9),
+      id: Math.random().toString(36).substring(2, 9),
       date: selectedDate,
       time: selectedTime,
       daytime: getDaytime(selectedTime),

@@ -15,9 +15,5 @@ export const TIME_SLOTS: TimeSlots = {
     { time: "17:00" },
     { time: "18:00" },
   ],
-  evening: [
-    { time: "19:00" },
-    { time: "20:00" },
-    { time: "21:00", disabled: true },
-  ],
+  evening: [{ time: "19:00" }, { time: "20:00" }, { time: "21:00" }],
 };

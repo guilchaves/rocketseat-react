@@ -14,26 +14,26 @@ export default function ScheduleList({
   eveningAppointments,
   isLoading,
 }: ScheduleListProps) {
-  if (isLoading) {
-    return <div>Carregando...</div>;
-  }
-
   return (
     <div className="space-y-4">
       <ScheduleCard
         daytime="Manhã"
         timeRange="09h-12h"
         appointments={morningAppointments}
+        isLoading={isLoading}
+
       />
       <ScheduleCard
         daytime="Tarde"
         timeRange="13h-18h"
         appointments={afternoonAppointments}
+        isLoading={isLoading}
       />
       <ScheduleCard
         daytime="Noite"
         timeRange="19h-21h"
         appointments={eveningAppointments}
+        isLoading={isLoading}
       />
     </div>
   );

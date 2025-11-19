@@ -9,14 +9,14 @@ export default function useAppointments(selectedDate?: string) {
     [],
   );
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [isFetchingAppointments, setIsFetchingAppointments] = useState<boolean>(true);
+  const [isFetchingAppointments, setIsFetchingAppointments] =
+    useState<boolean>(true);
 
   async function fetchAppointments(date: string) {
     if (!date) return;
-    setIsFetchingAppointments(true);
 
     if (isFetchingAppointments) {
-      await delay(1000);
+      await delay(500);
       setIsFetchingAppointments(false);
     }
 
@@ -24,11 +24,12 @@ export default function useAppointments(selectedDate?: string) {
       (appointment) => appointment.date === date,
     );
     setAppointments(filteredAppointments);
+    setIsFetchingAppointments(false);
   }
 
   useEffect(() => {
     if (selectedDate) {
-      fetchAppointments(selectedDate);
+      void fetchAppointments(selectedDate);
     }
   }, [appointmentsData, selectedDate]);
 
