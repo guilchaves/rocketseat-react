@@ -1,6 +1,24 @@
 {
   "users": [
-    { "id": "gui", "name": "Guilherme" },
-    { "id": "nene", "name": "Íris" }
+    {
+      "id": "gui",
+      "name": "Guilherme"
+    },
+    {
+      "id": "nene",
+      "name": "Íris"
+    },
+    {
+      "id": "tony",
+      "name": "antonio"
+    },
+    {
+      "id": "rod",
+      "name": "rodrigo"
+    },
+    {
+      "id": "foo",
+      "name": "Foo Bar"
+    }
   ]
 }
