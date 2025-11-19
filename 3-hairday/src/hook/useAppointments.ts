@@ -9,15 +9,15 @@ export default function useAppointments(selectedDate?: string) {
     [],
   );
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFetchingAppointments, setIsFetchingAppointments] = useState<boolean>(true);
 
   async function fetchAppointments(date: string) {
     if (!date) return;
-    setIsLoading(true);
+    setIsFetchingAppointments(true);
 
-    if (isLoading) {
+    if (isFetchingAppointments) {
       await delay(1000);
-      setIsLoading(false);
+      setIsFetchingAppointments(false);
     }
 
     const filteredAppointments = appointmentsData.filter(
@@ -43,6 +43,6 @@ export default function useAppointments(selectedDate?: string) {
     eveningAppointments: appointments.filter(
       (appointment) => appointment.daytime === "evening",
     ),
-    isLoading,
+    isFetchingAppointments,
   };
 }

@@ -9,8 +9,6 @@ function TaskList() {
   const { tasks, isLoadingTask } = useTasks();
   const { createNewTask } = useTask();
 
-  console.log("tasks:", tasks);
-
   function handleNewTask() {
     createNewTask();
   }

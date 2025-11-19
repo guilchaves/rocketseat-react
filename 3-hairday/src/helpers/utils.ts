@@ -11,3 +11,5 @@ export const getDaytime = (time: string): Daytime => {
   if (hour >= 13 && hour < 19) return Daytime.AFTERNOON;
   return Daytime.EVENING;
 };
+
+export const getTodayISO = (): string => new Date().toISOString().split("T")[0];
