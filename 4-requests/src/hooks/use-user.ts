@@ -26,7 +26,6 @@ export default function useUser() {
 
       await api("users", { method: "POST", body: JSON.stringify(payload) });
 
-      alert("User created successfully");
     } catch (e) {
       console.error("Failed to create user:", e);
 
