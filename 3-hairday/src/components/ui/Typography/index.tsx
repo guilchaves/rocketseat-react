@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 const typographyVariants = cva("font-sans", {
   variants: {
     variant: {
-      "title-lg": "text-2xl leading-8 font-bold",
+      "title-lg": "text-2xl leading-8 font-bold text-gray-100",
       "title-md": "text-base font-bold",
       "title-sm": "text-sm leading-5 font-bold",
       "text-md": "text-base",

@@ -1,5 +1,4 @@
 import { cva, cx } from "class-variance-authority";
-import { useState } from "react";
 import Typography from "../Typography";
 
 const timeSelectVariants = cva(
@@ -30,28 +29,28 @@ interface TimeSelectProps
   extends Omit<React.ComponentProps<"select">, "disabled"> {
   time: string;
   disabled?: boolean;
+  isSelected?: boolean;
 }
 
 export default function TimeSelect({
   disabled,
   className,
   time,
+  isSelected,
   ...props
 }: TimeSelectProps) {
-  const [onSelect, setOnSelect] = useState(false);
 
   return (
     <div
       className={cx(
         timeSelectVariants({ disabled, className }),
-        `${onSelect ? "border-yellow" : ""}`,
+        `${isSelected ? "border-yellow" : ""}`,
       )}
-      onClick={() => setOnSelect(!onSelect)}
     >
       <Typography
         variant="text-md"
         {...props}
-        className={`w-full p-2 bg-transparent outline-none text-center ${onSelect ? "text-yellow" : ""}`}
+        className={`w-full p-2 bg-transparent outline-none text-center ${isSelected ? "text-yellow" : ""}`}
       >
         {time}
       </Typography>
