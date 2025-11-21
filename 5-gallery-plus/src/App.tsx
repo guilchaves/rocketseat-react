@@ -9,8 +9,14 @@ import InputText from "./components/input-text";
 import SearchIcon from "./assets/icons/search.svg?react";
 import InputCheckbox from "./components/input-checkbox";
 import InputSingleFile from "./components/input-single-file";
+import { useForm } from "react-hook-form";
+import ImageFilePreview from "./components/image-file-preview";
 
 export default function App() {
+  const form = useForm();
+  const file = form.watch("file");
+  const fileSrc = file?.[0] ? URL.createObjectURL(file[0]) : undefined;
+
   return (
     <div className="grid gap-7 p-6">
       <div className="flex gap-3">
@@ -61,9 +67,14 @@ export default function App() {
         <InputCheckbox />
       </div>
       <div>
-        <InputSingleFile />
+        <InputSingleFile
+          form={form}
+          allowedExtensions={["png", "jpg", "jpeg", "webp"]}
+          maxFileSizeInMB={50}
+          replaceBy={<ImageFilePreview src={fileSrc} alt="Imagem" />}
+          {...form.register("file")}
+        />
       </div>
-
     </div>
   );
 }
