@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import Alert from "../../../components/alert";
 import Button from "../../../components/button";
@@ -19,6 +19,7 @@ import Skeleton from "../../../components/skeleton";
 import Text from "../../../components/text";
 import useAlbums from "../../albums/hooks/use-albums";
 import { photoNewFormSchema, type PhotoNewFormSchema } from "../schemas";
+import usePhoto from "../hooks/use-photo";
 
 interface PhotoNewDialogProps {
   trigger: React.ReactNode;
@@ -30,8 +31,13 @@ export default function PhotoNewDialog({ trigger }: PhotoNewDialogProps) {
     resolver: zodResolver(photoNewFormSchema),
   });
   const { albums, isLoadingAlbums } = useAlbums();
+  const { createPhoto } = usePhoto();
+  const [isCreatingPhoto, setIsCreatingPhoto] = useTransition();
+
   const file = form.watch("file");
   const fileSource = file?.[0] ? URL.createObjectURL(file[0]) : undefined;
+
+  const albumsIds = form.watch("albumsIds");
 
   useEffect(() => {
     if (!modalOpen) {
@@ -39,7 +45,24 @@ export default function PhotoNewDialog({ trigger }: PhotoNewDialogProps) {
     }
   }, [modalOpen, form]);
 
+  function handleToggleAlbum(albumId: string) {
+    const albumsIds = form.getValues("albumsIds") || [];
+    const albumsSet = new Set(albumsIds);
+
+    if (albumsSet.has(albumId)) {
+      albumsSet.delete(albumId);
+    } else {
+      albumsSet.add(albumId);
+    }
+
+    form.setValue("albumsIds", Array.from(albumsSet));
+  }
+
   function handleSubmit(payload: PhotoNewFormSchema) {
+    setIsCreatingPhoto(async () => {
+      await createPhoto(payload);
+      setModalOpen(false);
+    });
     console.log(payload);
   }
 
@@ -83,9 +106,12 @@ export default function PhotoNewDialog({ trigger }: PhotoNewDialogProps) {
                   albums.map((album) => (
                     <Button
                       key={album.id}
-                      variant="ghost"
+                      variant={
+                        albumsIds?.includes(album.id) ? "primary" : "ghost"
+                      }
                       size="sm"
                       className="truncate"
+                      onClick={() => handleToggleAlbum(album.id)}
                     >
                       {album.title}
                     </Button>
@@ -103,10 +129,14 @@ export default function PhotoNewDialog({ trigger }: PhotoNewDialogProps) {
           </DialogBody>
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="secondary">Cancelar</Button>
+              <Button variant="secondary" disabled={isCreatingPhoto}>
+                Cancelar
+              </Button>
             </DialogClose>
 
-            <Button type="submit">Adicionar</Button>
+            <Button type="submit">
+              {isCreatingPhoto ? "Adicionando..." : "Adicionar"}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>
