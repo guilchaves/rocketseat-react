@@ -11,7 +11,8 @@ import useAlbums from "../contexts/albums/hooks/use-albums";
 
 export default function PhotoDetailsPage() {
   const { id } = useParams();
-  const { albums, isLoading: isLoadingAlbums } = useAlbums();
+  const { albums, isLoadingAlbums } = useAlbums();
+
   //TODO: apenas para teste do mock, retirar ao finalizar
   const isLoadingPhoto = false;
   const photo = {
