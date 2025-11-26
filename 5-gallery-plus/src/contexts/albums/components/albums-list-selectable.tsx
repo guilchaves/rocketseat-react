@@ -25,13 +25,11 @@ export default function AlbumsListSelectable({
 
     if (isChecked(albumId)) {
       albumsIds = photo.albums
-        ? photo.albums
-          .filter((album) => album.id !== albumId)
-          .map((album) => album.id)
-        : [];
+        .filter((album) => album.id !== albumId)
+        .map((album) => album.id);
     } else {
       albumsIds = [
-        ...(photo.albums ? photo.albums.map((album) => album.id) : []),
+        ...photo.albums.map((album) => album.id),
         albumId,
       ];
     }
