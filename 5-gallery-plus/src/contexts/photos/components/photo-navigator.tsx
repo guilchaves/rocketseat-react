@@ -31,7 +31,7 @@ export default function PhotoNavigator({
             variant="secondary"
             disabled={!previousPhotoId}
             onClick={() => {
-              navigate(`/photos/${previousPhotoId}`);
+              navigate(`/fotos/${previousPhotoId}`);
             }}
           />
           <Button
@@ -39,7 +39,7 @@ export default function PhotoNavigator({
             variant="secondary"
             disabled={!nextPhotoId}
             onClick={() => {
-              navigate(`/photos/${nextPhotoId}`);
+              navigate(`/fotos/${nextPhotoId}`);
             }}
           >
             Próxima imagem
