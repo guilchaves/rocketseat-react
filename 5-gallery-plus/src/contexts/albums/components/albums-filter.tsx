@@ -9,7 +9,7 @@ interface AlbumsFilterProps extends React.ComponentProps<"div"> {
   loading?: boolean;
 }
 
-export default function AlbumFilter({
+export default function AlbumsFilter({
   albums,
   loading,
   className,
